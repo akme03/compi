@@ -10,16 +10,14 @@ int charToIndex(char c)
 {
     switch (c)
     {
-    case 'P':
-        return 0;
-    case 'L':
-        return 1;
     case 'A':
+        return 0;
+    case 'B':
+        return 1;
+    case 'C':
         return 2;
-    case 'Z':
+    case 'D':
         return 3;
-    case 'O':
-        return 4;
     default:
         return -1; // Carácter no válido
     }
@@ -52,13 +50,13 @@ int main()
                 break;
             }
             state = matrix[state][index];
-            if (state == 3)
-            {          // Check if the state is the acceptance state
-                break; // Stop processing further characters
+            if (state == 6)
+            {          // Verificar si es el estado de aceptación
+                break; // Finalizar el procesamiento de caracteres
             }
         }
 
-        if (valid && state == 3)
+        if (valid && state == 6)
         {
             validLines.push_back(line);
         }
@@ -68,7 +66,6 @@ int main()
         }
     }
 
-    // Printing valid and invalid lines
     cout << "Válidas: ";
     for (const string &vline : validLines)
     {
